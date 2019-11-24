@@ -27,7 +27,7 @@ module Datatable
     end
 
     def set_datatable_button dimension, partial_path
-      ApplicationController.new.render_to_string(partial: partial_path, locals: {dimension: dimension})
+      ApplicationController.new.render_to_string(partial: partial_path, locals: { dimension: dimension })
     end
 
     private
@@ -41,7 +41,7 @@ module Datatable
       search = ''
 
       @items.each_with_index do |val, key|
-        search << (key == 0 ? val+' LIKE :search ' : 'OR '+val+' LIKE :search ')
+        search << (key == 0 ? val+' LIKE :search ' : 'OR ' + val + ' LIKE :search ')
       end
 
       if params[:order]
@@ -57,16 +57,15 @@ module Datatable
 
       params[:columns].each do |key,column|
         if !column[:search][:value].blank?
-          dimension = dimension.where(@items[column[:data].to_i]+' LIKE :search ', search: "%#{column[:search][:value]}%")
+          dimension = dimension.where(@items[column[:data].to_i] + ' LIKE :search ', search: "%#{column[:search][:value]}%")
         end
       end
-
       dimension = dimension.page(page).per_page(per_page)
       dimension
     end
 
     def page
-      params[:start].to_i/per_page + 1
+      params[:start].to_i / per_page + 1
     end
 
     def per_page
@@ -75,9 +74,9 @@ module Datatable
 
     def imagen_data value, url, default
       if value.url(:thumb) == url
-        image_tag default, class:"img-circle", size: "60", style: "border: 5px solid #FFF;"
+        image_tag default, class: "img-circle", size: "60", style: "border: 5px solid #FFF;"
       else
-        image_tag value.url(:thumb), class:"img-circle", size: "60", style: "border: 5px solid #FFF;"
+        image_tag value.url(:thumb), class: "img-circle", size: "60", style: "border: 5px solid #FFF;"
       end
     end
 
