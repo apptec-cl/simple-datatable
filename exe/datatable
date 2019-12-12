@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require "datatable"
+
+begin
+Datatable::Runner.new(ARGV).execute
+rescue Exception => e
+  puts e.message
+  exit 0
+end
