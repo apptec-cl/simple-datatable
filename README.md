@@ -3,6 +3,33 @@
 
 ## Description
 
+Add advanced interaction controls to your HTML tables the free & easy way
+
+```
+      ___           ___         ___                     ___           ___
+     /  /\         /  /\       /  /\        ___        /  /\         /  /\
+    /  /::\       /  /::\     /  /::\      /  /\      /  /:/_       /  /:/
+   /  /:/\:\     /  /:/\:\   /  /:/\:\    /  /:/     /  /:/ /\     /  /:/
+  /  /:/~/::\   /  /:/~/:/  /  /:/~/:/   /  /:/     /  /:/ /:/_   /  /:/  ___
+ /__/:/ /:/\:\ /__/:/ /:/  /__/:/ /:/   /  /::\    /__/:/ /:/ /\ /__/:/  /  /\
+ \  \:\/:/__\/ \  \:\/:/   \  \:\/:/   /__/:/\:\   \  \:\/:/ /:/ \  \:\ /  /:/
+  \  \::/       \  \::/     \  \::/    \__\/  \:\   \  \::/ /:/   \  \:\  /:/
+   \  \:\        \  \:\      \  \:\         \  \:\   \  \:\/:/     \  \:\/:/
+    \  \:\        \  \:\      \  \:\         \__\/    \  \::/       \  \::/
+     \__\/         \__\/       \__\/                   \__\/         \__\/
+
+```
+
+
+```
+  $ datatable g model_name
+```
+
+We are created a folder with the  structure of the tables ```app/datatables```.
+
+
+In addition to a file:
+
 This gem gives you a good starting with datatables
 
 ## Requirements
