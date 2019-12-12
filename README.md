@@ -54,10 +54,10 @@ gem 'datatable', :git => 'git@github.com:apptec-cl/datatable.git'
 
 ```
 
-Generate model with structure datatables
+Generate model with structure datatables, open your terminal and write:
 
 ```
-  $ datatable g model_name
+$ datatable g model_name
 ```
 
 Automatically we are created a folder with the  structure of the tables ```app/datatables```.
