@@ -80,18 +80,6 @@ module Datatable
       end
     end
 
-    def set_name name, last_name
-      "#{name} #{last_name}"
-    end
-
-    def set_erased data, link
-      if data.state == "active"
-        link_to("Deshabilitar", link, class: "btn btn-danger fileinput-button font-white deshabilitar", method: :delete)
-      else
-        link_to("Habilitar", link, class: "btn btn-success fileinput-button font-white habilitar", method: :delete)
-      end
-    end
-
     def miles value
       number_with_delimiter(value, delimiter: ".")
     end
@@ -107,8 +95,5 @@ module Datatable
       asset = asset.get_asset
     end
 
-    def set_responsable dimension
-      dimension.responsable_id.nil? ? "No Posee" : dimension.responsable.name + ' ' + dimension.responsable.lastname
-    end
   end
 end
