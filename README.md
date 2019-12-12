@@ -3,7 +3,7 @@
 
 ## Description
 
-Add advanced interaction controls to your HTML tables the free & easy way
+Datatables development to Apptec, we add advanced interaction controls to your HTML tables the free & easy way in ruby on rails, this gem gives you a good starting with datatables.
 
 ```
       ___           ___         ___                     ___           ___
@@ -21,25 +21,46 @@ Add advanced interaction controls to your HTML tables the free & easy way
 ```
 
 
-```
-  $ datatable g model_name
-```
-
-We are created a folder with the  structure of the tables ```app/datatables```.
-
-
-In addition to a file:
-
-This gem gives you a good starting with datatables
-
 ## Requirements
 
+ - Ruby 
+ - Rails
+ - datatables
+ - Human
+
 ## Installation
+
+It is necessary to install lib datatable from:
+
+[https://datatables.net/download/index](https://datatables.net/download/index)
+
+in your file ```application.js```
+
+
+```
+
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.yadcf
+//= require dataTables/dataTables.bootstrap4
+//= require dataTables/dataTables.responsive
+//= require dataTables/responsive.bootstrap4
+
+```
+
+add gem
 
 ```
 gem 'datatable', :git => 'git@github.com:apptec-cl/datatable.git'
 
 ```
+
+Generate model with structure datatables
+
+```
+  $ datatable g model_name
+```
+
+Automatically we are created a folder with the  structure of the tables ```app/datatables```.
 
 ## Usage
 
