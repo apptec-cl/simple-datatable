@@ -1,6 +1,5 @@
 # Datatable
-[![Gem Version](https://badge.fury.io/rb/dckerize.svg)](http://badge.fury.io/rb/dckerize)
-[![Build Status]('0')
+[![GitHub version](https://badge.fury.io/gh/apptec-cl%2Fdatatable.svg)](https://badge.fury.io/gh/apptec-cl%2Fdatatable)
 
 ## Description
 
