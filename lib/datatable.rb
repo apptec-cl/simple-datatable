@@ -1,4 +1,4 @@
-require "datatable/application"
+# require "datatable/application"
 require "datatable/generator"
 require "datatable/runner"
 require 'erb'
