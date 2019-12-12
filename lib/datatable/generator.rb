@@ -4,6 +4,7 @@ module Datatable
 
     def initialize(name)
       @name = name
+      @dirname = 'datatables'
     end
 
     def up
@@ -20,17 +21,15 @@ module Datatable
     private
 
     def create_folder
-      require 'fileutils'
-      dirname = 'datatables'
-      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-    end
-
-    def application_datatable
-      File.dirname("#{templates}/application_datatable.erb"
+      FileUtils.mkdir_p(@dirname) unless File.directory?(@dirname)
     end
 
     def create_principal
-      FileUtils.mkdir_p("datatables/#{application_datatable}.rb")
+      template = ERB.new(File.read("#{templates}/application_datatable.erb"), nil, '-')
+      result = template.result(binding)
+      puts result
+      File.open("datatables/application_datatable.rb", 'w') { |file| file.write(result) }
+      puts "Created principal class application_datatable.rb"
     end
 
     def create_file
