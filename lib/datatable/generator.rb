@@ -25,19 +25,21 @@ module Datatable
     end
 
     def create_principal
-      template = ERB.new(File.read("#{templates}/application_datatable.erb"), nil, '-')
-      result = template.result(binding)
+      result = generate_template('application_datatable.erb')
       puts result
       File.open("datatables/application_datatable.rb", 'w') { |file| file.write(result) }
       puts "Created principal class application_datatable.rb"
     end
 
     def create_file
-      template = ERB.new(File.read("#{templates}/template_datatable.erb"), nil, '-')
-      result = template.result(binding)
+      result = generate_template('template_datatable.erb')
       puts result
       File.open("datatables/#{@name.downcase}_datatable.rb", 'w') { |file| file.write(result) }
       puts "Created new file #{@name}_datatable.rb in folder datatables"
+    end
+
+    def generate_template name_template
+      ERB.new(File.read("#{templates}/#{name_template}"), nil, '-').result(binding)
     end
   end
 end
