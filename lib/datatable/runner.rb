@@ -14,7 +14,7 @@ module Datatable
 
     def valid?
       # first option should always be up
-      return false unless @options[0].include?['generate', 'g']
+      return false if @options[0] != 'g'
       true
     end
   end
