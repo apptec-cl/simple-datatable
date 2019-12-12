@@ -27,7 +27,7 @@ module Datatable
     end
 
     def execute
-      MESSAGE if @options[0] == 'h'
+      raise MESSAGE if @options[0] == 'h'
       raise ERROR_MESSAGE unless valid?
       Datatable::Generator.new(@options[1]).up
     end
