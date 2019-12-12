@@ -1,9 +1,9 @@
 module Datatable
   class Application
-    # include AbstractController::Rendering
-    # include Rails.application.routes.url_helpers
-    # include ActionView::Helpers::TagHelper
-    # include ActionView::Helpers::NumberHelper
+    include AbstractController::Rendering
+    include Rails.application.routes.url_helpers
+    include ActionView::Helpers::TagHelper
+    include ActionView::Helpers::NumberHelper
     delegate :params, :h, :link_to, :image_tag, :current_user, to: :@view
 
     def initialize(view, model, items, order_items=nil, pre_filter=false, filter='')
