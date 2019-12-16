@@ -1,4 +1,4 @@
-# Datatable
+# Simple Datatable
 [![GitHub version](https://badge.fury.io/gh/apptec-cl%2Fdatatable.svg)](https://badge.fury.io/gh/apptec-cl%2Fdatatable)
 
 ## Description
