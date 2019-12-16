@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = %q{simple-datatable}
-  spec.version = "0.0.1"
+  spec.version = "0.0.2"
   spec.date = %q{2019-11-24}
   spec.summary = %q{awesome_gem is the best datatable Rails Gem}
   spec.authors       = ["DevTeam AppTec"]
