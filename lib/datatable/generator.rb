@@ -4,7 +4,7 @@ module Datatable
 
     def initialize(name)
       @name = name
-      @dirname = 'datatables'
+      @dirname = 'app/datatables'
     end
 
     def up
@@ -27,15 +27,22 @@ module Datatable
     def create_principal
       result = generate_template('application_datatable.erb')
       puts result
-      File.open("datatables/application_datatable.rb", 'w') { |file| file.write(result) }
+      File.open("#{@dirname}/application_datatable.rb", 'w') { |file| file.write(result) }
       puts "Created principal class application_datatable.rb"
     end
 
     def create_file
       result = generate_template('template_datatable.erb')
       puts result
-      File.open("datatables/#{@name.downcase}_datatable.rb", 'w') { |file| file.write(result) }
+      File.open("#{@dirname}/#{@name.downcase}_datatable.rb", 'w') { |file| file.write(result) }
       puts "Created new file #{@name}_datatable.rb in folder datatables"
+    end
+
+    def copy_datatable_js
+      result = generate_template('datatable.coffee')
+      puts result
+      File.open("app/assets/stylesheets/datatable.coffee", 'w') { |file| file.write(result) }
+      puts "Created new file datatable.coffee in folder :app/assets/stylesheets/"
     end
 
     def generate_template name_template
