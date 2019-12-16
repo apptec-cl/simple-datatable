@@ -12,6 +12,7 @@ module Datatable
       create_folder
       create_principal
       create_file
+      copy_datatable_js
     end
 
     def templates
