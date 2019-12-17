@@ -42,7 +42,7 @@ module Datatable
     def copy_datatable_js
       result = generate_template('datatable.coffee')
       puts result
-      File.open("app/assets/stylesheets/datatable.coffee", 'w') { |file| file.write(result) }
+      File.open("app/assets/javascripts/datatable.coffee", 'w') { |file| file.write(result) }
       puts "Created new file datatable.coffee in folder :app/assets/stylesheets/"
     end
 
