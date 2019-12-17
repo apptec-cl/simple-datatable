@@ -50,9 +50,22 @@ in your file ```application.js```
 add gem
 
 ```
-gem 'datatable', :git => 'git@github.com:apptec-cl/datatable.git'
+gem 'simple-datatable'
 
 ```
+
+It also depends on:
+
+
+```
+gem 'will_paginate', '~> 3.1.0'
+
+```
+
+Automatically we are created a folder with the  structure of the tables ```app/datatables```.
+
+## Usage
+
 
 Generate model with structure datatables, open your terminal and write:
 
@@ -60,9 +73,59 @@ Generate model with structure datatables, open your terminal and write:
 $ datatable g model_name
 ```
 
-Automatically we are created a folder with the  structure of the tables ```app/datatables```.
 
-## Usage
+Example Controller:
+
+```
+# Query with data
+@clients = Client.all
+
+# Format table
+data = %w[clients.id clients.name clients.lastname clients.address]
+  respond_to do |format|
+  format.html
+  format.json { render json: ClientsDatatable.new(view_context, @clients, data) }
+end
+
+```
+
+View:
+
+```
+<table id="datatable" class="table datatable_table table-hover" role="grid" data-source="<%= clients_path(format: :json) %>" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <!-- leave blank -->
+  </tbody>
+</table>
+```
+
+Folder datatable:
+
+```
+class ClientsDatatable < ApplicationDatatable
+private
+  def data
+    dimension.map do |dimension|
+    [
+      # Add your attributes
+      dimension.id,
+      dimension.name,
+      dimension.lastname,
+      dimension.address,
+    ]
+    end
+  end
+end
+```
 
 ### Quickstart
 
