@@ -4,6 +4,8 @@ module Datatable
     include Rails.application.routes.url_helpers
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::NumberHelper
+    include ActionView::Helpers::SanitizeHelper
+
     delegate :params, :h, :link_to, :image_tag, :current_user, to: :@view
 
     def initialize(view, model, items, order_items=nil, pre_filter=false, filter='')
@@ -22,7 +24,7 @@ module Datatable
         sEcho: params[:draw].to_i,
         iTotalRecords: @model.count,
         iTotalDisplayRecords: dimension.total_entries,
-        aaData: data
+        aaData: sanitize_data(data)
       }
     end
 
@@ -93,6 +95,16 @@ module Datatable
     def get_asset id
       asset = AssetConsumer.new current_user.customer_id, id
       asset = asset.get_asset
+    end
+
+    def sanitize_data data
+      # sanitize data, when the persistent (or stored) Cross-site scripting vulnerability
+      data.each do |row|
+        row.each_with_index do |attribute, index|
+          row[index] = sanitize(row[index]) if row[index].is_a? String
+        end
+      end
+      data
     end
 
   end
