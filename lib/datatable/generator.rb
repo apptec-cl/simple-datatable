@@ -26,6 +26,7 @@ module Datatable
     end
 
     def create_principal
+      return if File.exist?("#{@dirname}/application_datatable.rb")
       result = generate_template('application_datatable.erb')
       puts result
       File.open("#{@dirname}/application_datatable.rb", 'w') { |file| file.write(result) }
@@ -33,6 +34,10 @@ module Datatable
     end
 
     def create_file
+      if File.exist?("#{@dirname}/#{@name.downcase}_datatable.rb")
+        puts "Ya existe el archivo: #{@dirname}/#{@name.downcase}_datatable.rb, intenta con otro nombre"
+        return
+      end
       result = generate_template('template_datatable.erb')
       puts result
       File.open("#{@dirname}/#{@name.downcase}_datatable.rb", 'w') { |file| file.write(result) }
